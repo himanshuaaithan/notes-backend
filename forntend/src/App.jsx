@@ -10,7 +10,7 @@ function App() {
   })
 
   function fatchnotes() {
-    axios.get("http://localhost:3000/api/note")
+    axios.get("https://notes-backend-t2tn.onrender.com/api/note")
       .then(res => {
         setnotes(res.data.notes)
       })
@@ -27,7 +27,7 @@ function App() {
     const { title, discription } = e.target.elements
     console.log(title.value, discription.value)
 
-    axios.post("http://localhost:3000/api/note", {
+    axios.post("https://notes-backend-t2tn.onrender.com/api/note", {
       title: title.value,
       discription: discription.value
     })
@@ -37,7 +37,7 @@ function App() {
   }
 
   function deleteHandler(noteID) {
-    axios.delete("http://localhost:3000/api/note/" + noteID)
+    axios.delete("https://notes-backend-t2tn.onrender.com/api/note/" + noteID)
       .then(res => {
         fatchnotes()
       })
@@ -49,7 +49,7 @@ function App() {
     e.preventDefault()
     const { title, discription } = e.target.elements
 
-    axios.patch("http://localhost:3000/api/note/" + id, {
+    axios.patch("https://notes-backend-t2tn.onrender.com/api/note/" + id, {
       title: inputvalue.title,
       discription: inputvalue.discription
     })
